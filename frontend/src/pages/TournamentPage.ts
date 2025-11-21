@@ -6,38 +6,38 @@ export class TournamentPage extends AbstractView {
 
     public async render(container: HTMLElement): Promise<void> {
         this.setTitle('Tournament');
-        
+
         container.innerHTML = `
             <div class="page tournament-container">
                 <h2>Tournament Mode</h2>
-                
+
                 <div id="tournament-setup">
                     <h3>Add Players</h3>
                     <form id="add-player-form" class="tournament-form">
                         <div class="form-group">
                             <label for="player-alias">Player Alias:</label>
-                            <input 
-                                type="text" 
-                                id="player-alias" 
-                                name="alias" 
-                                placeholder="Enter player name" 
+                            <input
+                                type="text"
+                                id="player-alias"
+                                name="alias"
+                                placeholder="Enter player name"
                                 required
                                 maxlength="20"
                             />
                         </div>
                         <button type="submit" class="btn">Add Player</button>
                     </form>
-                    
+
                     <div id="players-container">
                         <h3>Registered Players (<span id="player-count">0</span>)</h3>
                         <div id="players-list" class="players-list"></div>
                     </div>
-                    
+
                     <button id="start-tournament" class="btn btn-primary" disabled>
                         Start Tournament (min. 2 players)
                     </button>
                 </div>
-                
+
                 <div id="tournament-matches" style="display: none;">
                     <h3>Tournament Matches</h3>
                     <div id="current-match"></div>
@@ -58,7 +58,7 @@ export class TournamentPage extends AbstractView {
             e.preventDefault();
             const input = document.getElementById('player-alias') as HTMLInputElement;
             const alias = input.value.trim();
-            
+
             if (alias && this.tournament) {
                 this.tournament.addPlayer(alias);
                 input.value = '';
@@ -97,8 +97,8 @@ export class TournamentPage extends AbstractView {
 
         if (startBtn) {
             startBtn.disabled = players.length < 2;
-            startBtn.textContent = players.length < 2 
-                ? `Start Tournament (min. 2 players)` 
+            startBtn.textContent = players.length < 2
+                ? `Start Tournament (min. 2 players)`
                 : `Start Tournament with ${players.length} players`;
         }
 
@@ -112,10 +112,10 @@ export class TournamentPage extends AbstractView {
     private showMatches(): void {
         const setupDiv = document.getElementById('tournament-setup');
         const matchesDiv = document.getElementById('tournament-matches');
-        
+
         if (setupDiv) setupDiv.style.display = 'none';
         if (matchesDiv) matchesDiv.style.display = 'block';
-        
+
         this.displayMatches();
     }
 
@@ -124,7 +124,7 @@ export class TournamentPage extends AbstractView {
 
         const matches = this.tournament.getMatches();
         const matchesList = document.getElementById('matches-list');
-        
+
         if (matchesList) {
             matchesList.innerHTML = matches.map((match, index) => `
                 <div class="match-card">

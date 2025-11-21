@@ -247,5 +247,5 @@
 
 ---
 
-**Status**: Base implementada ✅  
+**Status**: Base implementada ✅
 **Próximo passo**: Testar tudo e preparar para avaliação

@@ -198,7 +198,7 @@
 
 ### Expansibilidade para Módulos
 
-**Database Module**: 
+**Database Module**:
 - Backend já está preparado para adicionar endpoints
 - Docker compose pode adicionar container PostgreSQL
 - ORM ou queries raw PHP

@@ -64,7 +64,7 @@ export class Router {
 
         const view = match.route.view();
         const content = document.getElementById('content');
-        
+
         if (content) {
             content.innerHTML = '';
             await view.render(content);

@@ -3,7 +3,7 @@ import { AbstractView } from './AbstractView';
 export class HomePage extends AbstractView {
     public async render(container: HTMLElement): Promise<void> {
         this.setTitle('Home');
-        
+
         container.innerHTML = `
             <div class="page">
                 <h2>Welcome to ft_transcendence</h2>

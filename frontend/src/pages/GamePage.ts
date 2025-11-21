@@ -6,7 +6,7 @@ export class GamePage extends AbstractView {
 
     public async render(container: HTMLElement): Promise<void> {
         this.setTitle('Play Game');
-        
+
         container.innerHTML = `
             <div class="page">
                 <h2>Pong Game</h2>
@@ -26,14 +26,14 @@ export class GamePage extends AbstractView {
         const canvas = document.getElementById('pong-canvas') as HTMLCanvasElement;
         if (canvas) {
             this.game = new PongGame(canvas);
-            
+
             const startBtn = document.getElementById('start-game');
             const resetBtn = document.getElementById('reset-game');
-            
+
             startBtn?.addEventListener('click', () => {
                 this.game?.start();
             });
-            
+
             resetBtn?.addEventListener('click', () => {
                 this.game?.reset();
             });

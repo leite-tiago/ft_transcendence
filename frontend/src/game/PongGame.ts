@@ -30,11 +30,11 @@ export class PongGame {
     constructor(canvas: HTMLCanvasElement) {
         this.canvas = canvas;
         const context = canvas.getContext('2d');
-        
+
         if (!context) {
             throw new Error('Could not get canvas context');
         }
-        
+
         this.ctx = context;
 
         // Initialize paddles
@@ -101,11 +101,11 @@ export class PongGame {
     private resetBall(): void {
         this.ball.x = this.canvas.width / 2;
         this.ball.y = this.canvas.height / 2;
-        
+
         // Random direction
         const angle = (Math.random() * Math.PI / 2) - Math.PI / 4;
         const direction = Math.random() < 0.5 ? 1 : -1;
-        
+
         this.ball.speedX = direction * 4 * Math.cos(angle);
         this.ball.speedY = 4 * Math.sin(angle);
     }

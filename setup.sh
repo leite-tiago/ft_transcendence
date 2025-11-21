@@ -51,7 +51,7 @@ if [ $? -eq 0 ]; then
     echo ""
     echo -e "${BLUE}🚀 Starting containers...${NC}"
     docker-compose up -d
-    
+
     if [ $? -eq 0 ]; then
         echo ""
         echo -e "${GREEN}================================${NC}"
